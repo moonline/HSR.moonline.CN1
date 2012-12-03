@@ -411,7 +411,35 @@ Wie werden die vier Datenströme auf kurzen Strecken in einer Faster transportie
 \olS
 
 
-
+\ch{TCP}
+\olR
+	\li Wie ist das TCP Protokoll aufgebaut? Skizzieren Sie den TCP Header
+	\li Was sind TCP options? Wie lange können Sie maximal sein. Welches Feld gibt die Länge an?
+	\li Machen Sie eine Skizze mit einem Client A und einem Server B. Zeichnen Sie einen 3-Weg Handshake ein. Zeichnen Sie auch das Connection Closing ein. Zeichnen Sie ein, welche Daten ausgetauscht werden.
+	\li Wie zerlegt TCP einen Datenstrom in Sequenzen und wie werden diese nummeriert? Wo im Paket wird die Sequenznummer abgelegt?
+	 \li Wie werden Pakete bestätigt? Was für Informationen werden dabei übermittelt?
+	 \li Was ist die Round Trip Time RTT? Wie berechnen Sie daraus die Datenrate?
+	 \li Skizzieren Sie, was passiert, wenn Daten oder Bestätigungspakete verloren gehen. Was ist die RTO?
+	 \li Erklären Sie "cumulative ACK". Welche Vorteile ergeben sich dadurch?
+	 \li Was ist das "Receive Window"? Was passiert, wenn es auf 0 gesetzt ist?
+	 \li Abb. \ref{slidingWindow}: Erklären Sie die Grafik:	 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.75\textwidth]{img/V11.19.jpg}
+			\caption{slidingWindow}
+			\label{slidingWindow}
+		\end{figure}
+	\li Was ist die Maximale Window Size? Inwiefern begrenzt die Window Size die Datenrate?
+	\li Welche Massnahmen werden unternommen, um die Datenrate dennoch zu steigern?
+	\li Was ist Window scaling?
+	\li Wie funktioniert Duplicate Acknowledgement?
+	\li Was ist Delayed Acknowledgement?
+	\li 100ms RTT, Strecke Zürich New York, 80Mb/s. Wie viele Bytes Daten benötigen Sie, um die Leitung "zu füllen" (Window Size)?
+	\li Erklären Sie Fast Retransmit
+	\li Erklären Sie selective Acknowledge
+	\li Was passiert, wenn der Sende Timeout kleiner als die RTT ist?
+	\li Wie wird eine TCP Verbindung an die mögliche Datenrate der Leitung angepasst? Was ist slow Start?
+\olS
 
 
 

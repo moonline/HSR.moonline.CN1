@@ -1425,8 +1425,130 @@ Use Parallel Connections
 	\label{}
 \end{figure}
 
+\ul
+	\li Lösung für Problem kleiner Datenrate: senden von parallelen Objekten mit mehreren Sockets
+\ulE
+
+\examp{Datenrate berechnen}{\\
+USA RTT = 80ms \\
+WindowMax = 2\^16-1 = 65'535 \\
+$Rmax = \frac{64000 B}{80ms} = 6.4Mb/s$
+}
 
 
+\exam{\\
+\expl{Window Size}{Müsste eigentlich "Recive winow size" heissen. Damit verhindert der Empfänger, dass er überlastet wird. Empfänger legt damit fest, wie viel Platz er im Puffer hat und wie viele Packete der Sender ohne Acknowledge senden darf. Möchte er keine Packete mehr erhalten, sendet er window size 0.}
+\expl{Acknowledge \& Sequence Number}{Zuständig für die Zuverlässigkeit der Byteweisen übertragung. Sender nummeriert virtuell jedes Byte. Empfänger sagt mit Acknowledgenumber das höchstwertige erhaltene Byte+1 (Das Byte, das er als nächstes erwartet.}}
+
+
+\sse{TCP Window Scale}
+\ul
+	\li Ermöglicht Receive window Size > 64 kB
+	\li Scaling option und scaling factor werden beim Verbindungsaufbau ausgehandelt
+	\li 
+\ulE
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V12.1.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+
+\sse{duplicate Acknowledge}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V12.2.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+
+\sse{Fast Retransmit}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V12.3.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+
+\ul
+	\li Empfänger legt Alle Pakete in Puffer
+	\li Meldet zurück, dass ihm 21 fehlt
+	\li Sobald 21 nachgeliefert wurde, werden Pakete an Applikation weiter gegeben
+	\li Pakete grösser 21 werden verwertet
+	\li Bei mehreren Lücke keine Chance
+\ulE
+
+\sse{Selective Acknowledge - SACK}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V12.4.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+Meldet mit dem Acknowledge, welche er erhalten hat, und welche nicht
+
+\expl{Maximale Anzahl TCP Options}{44 Byte weil Maximalwert von Data Offset $2^4$ = 16 (Max Wert = $2^4$-1 = 15) ist und damit keine längere Länge als 44 Byte möglich sind. Damit ist bei SACK maximal 4 Ranges mit erreichten Paketen möglich, weil SACK noch Overhead hat.}
+
+\sse{Acklowledge Events}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V12.5.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+
+
+\sse{Example RTT estimation}
+$RTO = EstimatedRTT + 4* DevRTT$
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V12.6.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+
+\sse{Congestion Controll}
+\ul
+	\li Soll Verstopfung des Netzes verhindern
+	\li slow start
+	\li fast retransmit
+	\li fast recovery
+\ulE
+
+\sss{Slow Start}
+\ul
+	\li Beginnt mit kleiner Segmentanzahl
+	\li Erhöht mit jedem Acknowledge die Anzahl Segmente
+	\li Datenrate nimmt exponentiell zu
+	\li Delayed Acknowledge würde den Slow Start noch verlangsamen
+\ulE
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V12.7.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+
+Zuerst Slow Start, irgendwann Wechsel zu Linearer Erhöhung
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V12.8.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V12.9.jpg}
+	\caption{Beispiel Congestion Avoidance}
+	\label{}
+\end{figure}
+
+\examp{ISP Datenrate}{Verzögert Pakete, damit Datenrate eingehalten wird}
 
 
 
