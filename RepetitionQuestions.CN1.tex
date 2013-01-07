@@ -442,5 +442,58 @@ Wie werden die vier Datenströme auf kurzen Strecken in einer Faster transportie
 \olS
 
 
+\ch{Application Layer}
+\olR
+	\li Was ist ein Socket aus Application Sicht?
+	\li Nennen Sie vier Anforderungen, die Anwendungen an das Netzwerk stellen.
+	\li Geben Sie für die folgenden Anwendungen an, wie wichtig/problematisch download speed, upload speed, response time, Paketverlust und Verfügbarkeit sind: E-mail Kommunikation, File Share, Instant Messaging, Video/Radio Streaming, Video-Chat, Gaming.
+	\li Erklären Sie das Client-Server Paradigma und das P2P Paradigma je an einem Beispiel. Machen Sie eine Skizze.
+\olS
 
+\se{NVT}
+\olR
+	\li Was ist NVT und wie funktioniert es? 
+	\li Was bedeutet Remote Access?
+	\li Was sind Remote Desktop Services und Remote Terminal Services?
+	\li Maschen Sie eine Skizze, wie NTV funktioniert. Welche Probleme kann es bezügl. Timeout und Verzögerung geben? Wird jedes Zeichen einzeln übertragen oder wird zusammengefasst? Warum kann nicht zu lang gewartet werden mit dem Senden der Konsoleneingabe?
+\olS
+
+\se{Telnet}
+\olR
+	\li Was ist Telnet? Wozu wird es eingesetzt? Welche Risken birgt es?
+	\li Was ist ein Lokales Echo?
+	\li Was ist der TCP Nagle algorithm? Wie funktioniert er?
+\olS
+
+\se{TFTP, FTP}
+\olR
+	\li Auf welchem Protokoll setzt TFTP auf?
+	\li Erklären Sie, wie eine TFTP Verbindung aufgebaut wird, und wie die Datenübertragung funktioniert.
+	\li Wie ist eine TFTP Message aufgebaut? Skizzieren Sie die vier Arten von Nachrichten, die TFTP übertragen kann. Wozu wird welcher Typ benutzt?
+	\li Wie erkennt TFTP das Ende einer Datei?
+	\li Sie haben eine Datei, die 2048 Bytes gross ist. Was für Pakete werden übers Netz gesendet und wie viele?
+	\li Erklären Sie, wie eine FTP Verbindung aufgebaut wird. Wozu verwendet FTP zwei Ports?
+	\li Wie authentisiert sich ein User am Server? Was ist ein anonymer Zugang?
+	\li Zeichnen Sie detailiert den Verbindungsprozess mit allen Schritten vom Login bis zum Ende der Datenübertragung auf.
+	\li Was sind der aktive und der passive FTP Modus?
+	\li Welche Probleme kann es mit FTP und NAT geben? Warum? Machen Sie eine Skizze mit eine Client (192.168.1.100), einem NAT (192.168.1.1/12.34.56.78) und dem FTP Server (84.20.10.2). Wie verhalten sich active und passive Mode? Wie lösen die NAT Router das Problem?
+\olS
+
+\se{HTTP}
+\olR
+	\li Erklären Sie den Unterschied zwischen HTML und HTTP.
+	\li Wie ist eine HTTP Request Message aufgebaut? Wie eine HTTP Response?
+	\li Wie kann ein Server anhand eines HTTP Requestes diesen dem richtigen Virtual Host zuordnen?
+	\li Zeichnen Sie ein Raum-Zeit Diagramm zu den folgenden Übertragungsarten und schätzen SIe die Zeit in RTT's ab, die benötigt wird um eine Seite mit 3 eingebundenen Bildern zu übertragen:
+		\ol
+			\li non-persistent connection
+			\li persistent connection without pipelining
+			\li persistent connection with pipelining
+			\li non-persistent connection with parallel connections
+		\olE
+	\li Welchen Einfluss hat der Browsercache auf die Ladezeit
+	\li Was ist conditional Get? Erklären Sie, was dabei zwischen dem Browser und dem Server aböäuft.
+	\li Was ist ein HTTP Proxy und wozu dient er?
+	\li Welche Möglichkeiten haben Sie, sich in die HTTP Verbindung einzuklinken?
+\olE
 \end{document}

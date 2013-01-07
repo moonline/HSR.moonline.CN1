@@ -1551,5 +1551,414 @@ Zuerst Slow Start, irgendwann Wechsel zu Linearer Erhöhung
 \examp{ISP Datenrate}{Verzögert Pakete, damit Datenrate eingehalten wird}
 
 
+\ch{Application Layer}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.1.jpg}
+	\caption{ISO-OSI-Model and Peer-to-Peer
+Communication}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.2.jpg}
+	\caption{Applications and Application Layer Protocols}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.3.jpg}
+	\caption{Client-server paradigm}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.4.jpg}
+	\caption{Client-Server example (HTTP)}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.5.jpg}
+	\caption{Peer-to-Peer P2P paradigm}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.6.jpg}
+	\caption{P2P Example}
+	\label{}
+\end{figure}
+
+\se{NTV - Network Virtual Terminal}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.7.jpg}
+	\caption{NTV}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.8.jpg}
+	\caption{Remote Access}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.10.jpg}
+	\caption{Telnet}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.8.jpg}
+	\caption{Telnet User Interface}
+	\label{}
+\end{figure}
+
+
+\ch{Domain Name System DNS}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.11.jpg}
+	\caption{Registration of Domains and IP networks}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.12.jpg}
+	\caption{Domain Name to Address Mapping}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.13.jpg}
+	\caption{Domain Name System}
+	\label{}
+\end{figure}
+
+\ul
+	\li gTLD: com, net
+	\li ccTLD: us, ch, de
+	\li nTLD: muesum, video
+\ulE
+
+\se{Whois}
+Wer steckt hinter welchem Namem.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.14.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+Benutzer aktualisiert seine Daten selber \ra Informationen von whois teilweise veraltet.
+
+\se{DNS}
+\ul
+	\li Browser holt Information über UDP von DNS Server ab.
+	\li Zonenfiles werden per TCP ausgetauscht.
+\ulE
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.15.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+\ul
+	\li Namen mit Punkt abgeschlossen: Fully Qualified Name dem nichts mehr hinzgefügt wird
+	\li Hauptnameserver: Hoster des Zonenfiles (primary / master server)
+	\li Secondary  server: Backup des Master, sollte nicht in gleicher Organisation sein.
+	 \li 
+\ulE
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.16.jpg}
+	\caption{Domain Name Server}
+	\label{}
+\end{figure}
+
+\ul
+	\li TLD Name server knows addresses of second level domain name servers
+	\li Jeder name Server kennt die adressen der Stufe darunter
+\ulE
+
+\se{DNS resolving Process}
+\ol
+	\li Suche nach Adresse hsr.ch
+	\li Suche in etc/hosts
+	\li Suche im DNS Cache des Rechners
+	\li Default Name Server in der aktuellen Domäne
+	\li Frage bei TLD nach ch, bei Switch nach hsr
+\olE
+
+\sse{Beispiel bank24.de}
+\ol
+	\li Kein Eintrag im etc/hosts
+	\li kein Eintrag im DNS Cache
+	\li kein Domain Name server
+	\li Fragt Default Gateway Server
+	\li Dieser liefert Root Name Server
+	\li ... 
+\olE
+
+\sse{Angriffsmöglichkeiten}
+\ol
+	\li Angreifer überschreibt etc/host
+	\li Angreifer schreibt in irgend einen Cache
+	\li Angreifer manipuliert Antwort des Servers
+\olE
+
+\se{Content Distribution Caching and Proxy Services}
+\ul
+	\li Vor allem Bilder, Videos werden gecached
+	\li DNS Server retourniert Adresse von nächstem Caching Server
+\ulE
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.19.jpg}
+	\caption{CDN}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V13.18.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+
+\expl{DNS}{DNS setzt UDP für Transport ein. Um Daten zwischen DNS Servern auszutauschen wird
+
+\expl{TCP/UPD Multicast}{TCP Multicast gibt es nicht, weil zwischen jeder Endstelle eine Verbindung aufgebaut werden müsste.}
+
+
+\ch{TFTP, FTP} TCP verwendet.}
+\se{TFTP - Trivial File Transport Protocol}
+\ul
+	\li Client wählt ephermeral Port, sendet UDP Paket an Server
+	\li TFTP garantiert Übertragungsgarantie auf Applikationsebene.
+\ulE
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.1.jpg}
+	\caption{TFTP 'Connection'}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.2.jpg}
+	\caption{TFTP Commands}
+	\label{}
+\end{figure}
+
+\ul
+	\li Nummeriert werden Blöcke, nicht Byte
+	\li Block muss immer 512 Byte haben, das Ende wird durch einen Block signalisiert, der nicht 512Byte gross ist. Sind die Daten genau 512 oder ein vielfaches gross, muss noch ein Leerpaket gesendet werden.
+	\li ReadRequest (RRQ) gibt an, welches File man gerne hätte und in welchem Mode es übertragen werden soll
+	\li WriteRequest WRQ ermöglicht schreiben einer Datei
+\ulE
+
+\se{FTP}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.3.jpg}
+	\caption{FTP Connections}
+	\label{}
+\end{figure}
+
+\ul
+	\li Zwei Portnummern: einer für Kontrollkanal und einer für Datenaustausch.
+	\li Aktive Mode: Server baut Verbindung auf
+	\li Passiv Mode: Server nimmt Verbindungen von Clients entgegen
+	\li Im Ascii Mode passt FTP die Zeilenumbrüche automatisch an die Systeme an (Linux/Windows)
+	\li Autentisierung mit Passwort/Benutzername, Übertragung jedoch plaintext
+\ulE
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.4.jpg}
+	\caption{FTP Ablauf}
+	\label{}
+\end{figure}
+
+\ul
+	\li Authentisierung beim Server
+	\\ \ra Anonymous: Login mit anonymous als BN und Mail als PW. (Login ohne Login Account)
+	\li Übertragungsmode bestimmen
+	\\ \ra Im Ascii Mode übertragene Bilder sind defekt (Line Return Umsetzung).
+	\li Literal macht Umsetzung von Zeichen (zwischen Systemen nicht).
+	\li 
+\ulE
+
+\sse{Mode}
+\ul
+\li PASSIVE Mode (PASV)
+\ul
+\li– Datenverbindung wird vom Server entgegengenommen
+\li– Einfacher, wenn Client hinter Firewall steht
+\li– Wird typisch bei Browser-Clients verwendet
+\ulE
+\li ACTIVE Mode
+\ul \li– Datenverbindung wird vom Server aufgebaut
+\li– Wird typisch beim Windows Command Line Client
+verwendet\ulE
+\ulE
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.5.jpg}
+	\caption{FTP Transfer in passiv mode}
+	\label{}
+\end{figure}
+
+\ul
+	\li PASV weist Server an, in Passiv Mode zu gehen und Verbindungen entgegenzunehmen
+	\li 152.96.123.20,200,15: 1. Nummer*256,+2.*1 \ra 200*256+1*15 = 51215
+	\li Server liefert Daten über zweiten Kanal
+	\li Probleme bei NAT/PAT: Notwendiges Mapping 152.96.31.12 \ra 192.168.1.11:1173, Zweite Verbindung sollte gehen, weil sie vom Client geöffnet wird.
+	\li Active Mode: Active Server baut Verbindung zum Clinet auf
+	\li Active Mode: Datenverbindung wird von Server aufgebaut: Datastream kommt nie beim Client an, weil NAT andere Adresse hat
+	\li Später wurde NAT um Funktion umgerüstet, damit es eine aktive Verbindunsadresse so verändert, dass der Server die Daten an die richtige Adresse sendet
+	\li Nachteil passiv Mode: Server Firewall muss Zugang auf Port zulassen \ra entsprechender Vorteil des aktive Mode.
+	\li Aktive Mode erkennt man daran, dass der Client dem Server sagt unter welcher Adresse er erreichbar ist für die Daten.
+\ulE
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.6.jpg}
+	\caption{FTP Transfer in active mode}
+	\label{}
+\end{figure}
+
+
+\ch{HTTP}
+\ul
+	\li Get Request: Server Antwortet mit Response/Daten
+	\li Es werden erst Pakete gesendet, wenn ein Befehl mit Enter abgeschlossen wird.
+	\li keep alive: Hält Verbindung offen
+\ulE
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.7.jpg}
+	\caption{HTTP Example}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.15.jpg}
+	\caption{Non persistent Connection}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.16.jpg}
+	\caption{Persistent Connection without Pipelining}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.17.jpg}
+	\caption{Persistent Connection wiht Pipelinging}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.18.jpg}
+	\caption{Non persistent 4 parallel Connections}
+	\label{}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.8.jpg}
+	\caption{HTTP Request Message}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.10.jpg}
+	\caption{HTTP Resonse}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.9.jpg}
+	\caption{Server Side}
+	\label{}
+\end{figure}
+
+
+\se{HTTP Request}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.11.jpg}
+	\caption{HTTP Request Time}
+	\label{}
+\end{figure}
+
+\ul
+	\li Frühestens nach zwei RTT's+N/R ist der Content da.
+	\li HTTP 1.0 verwendet standartmässig nicht persistente Verbindungen und hat damit für jedes Objekt eine eigene Verbindung aufgebaut
+	\li HTTP 1.1 baut nur eine Verbindung auf (Persistente Verbindung).
+	\li Pipelining: Client fordert fehlenden Objekte auf einmal an
+	\li Mit parallelen Connections kann noch einmal schneller geladen werden
+\ulE
+
+\se{HTTP Cache}
+\ul
+	\li 
+
+\ulE
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.12.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.13.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+
+\se{Proxy}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/V14.14.jpg}
+	\caption{}
+	\label{}
+\end{figure}
+
+
+
+
 
 \end{document}
