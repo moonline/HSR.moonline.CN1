@@ -416,15 +416,15 @@ Wie werden die vier Datenströme auf kurzen Strecken in einer Faser transportier
 
 \ch{TCP}
 \olR
-	\li Wie ist das TCP Protokoll aufgebaut? Skizzieren Sie den TCP Header
-	\li Was sind TCP options? Wie lange können Sie maximal sein. Welches Feld gibt die Länge an?
+	\li Wie ist das TCP Protokoll aufgebaut? Skizzieren Sie den TCP Header.
+	\li Was sind TCP Options? Wie lange können sie maximal sein. Welches Feld gibt die Länge an?
 	\li Machen Sie eine Skizze mit einem Client A und einem Server B. Zeichnen Sie einen 3-Weg Handshake ein. Zeichnen Sie auch das Connection Closing ein. Zeichnen Sie ein, welche Daten ausgetauscht werden.
 	\li Wie zerlegt TCP einen Datenstrom in Sequenzen und wie werden diese nummeriert? Wo im Paket wird die Sequenznummer abgelegt?
 	 \li Wie werden Pakete bestätigt? Was für Informationen werden dabei übermittelt?
 	 \li Was ist die Round Trip Time RTT? Wie berechnen Sie daraus die Datenrate?
 	 \li Skizzieren Sie, was passiert, wenn Daten oder Bestätigungspakete verloren gehen. Was ist die RTO?
-	 \li Erklären Sie "cumulative ACK". Welche Vorteile ergeben sich dadurch?
-	 \li Was ist das "Receive Window"? Was passiert, wenn es auf 0 gesetzt ist?
+	 \li Erklären Sie "`Cumulative ACK"'. Welche Vorteile ergeben sich dadurch?
+	 \li Was ist das "`Receive Window"'? Was passiert, wenn es auf 0 gesetzt ist?
 	 \li Abb. \ref{slidingWindow}: Erklären Sie die Grafik:	 
 		\begin{figure}[H]
 			\centering
@@ -434,14 +434,14 @@ Wie werden die vier Datenströme auf kurzen Strecken in einer Faser transportier
 		\end{figure}
 	\li Was ist die Maximale Window Size? Inwiefern begrenzt die Window Size die Datenrate?
 	\li Welche Massnahmen werden unternommen, um die Datenrate dennoch zu steigern?
-	\li Was ist Window scaling?
+	\li Was ist Window Scaling?
 	\li Wie funktioniert Duplicate Acknowledgement?
 	\li Was ist Delayed Acknowledgement?
-	\li 100ms RTT, Strecke Zürich New York, 80Mb/s. Wie viele Bytes Daten benötigen Sie, um die Leitung "zu füllen" (Window Size)?
-	\li Erklären Sie Fast Retransmit
-	\li Erklären Sie selective Acknowledge
-	\li Was passiert, wenn der Sende Timeout kleiner als die RTT ist?
-	\li Wie wird eine TCP Verbindung an die mögliche Datenrate der Leitung angepasst? Was ist slow Start?
+	\li 100ms RTT, Strecke Zürich New York, 80Mb/s. Wie viele Bytes Daten benötigen Sie, um die Leitung "`zu füllen"' (Window Size)?
+	\li Erklären Sie "`Fast Retransmit"`.
+	\li Erklären Sie "`Selective Acknowledge"'.
+	\li Was passiert, wenn der Sendetimeout kleiner als die RTT ist?
+	\li Wie wird eine TCP Verbindung an die mögliche Datenrate der Leitung angepasst? Was ist "`Slow Start"'?
 \olS
 
 
@@ -449,7 +449,15 @@ Wie werden die vier Datenströme auf kurzen Strecken in einer Faser transportier
 \olR
 	\li Was ist ein Socket aus Application Sicht?
 	\li Nennen Sie vier Anforderungen, die Anwendungen an das Netzwerk stellen.
-	\li Geben Sie für die folgenden Anwendungen an, wie wichtig/problematisch download speed, upload speed, response time, Paketverlust und Verfügbarkeit sind: E-mail Kommunikation, File Share, Instant Messaging, Video/Radio Streaming, Video-Chat, Gaming.
+	\li Geben Sie für die folgenden Anwendungen an, wie wichtig/problematisch Download Speed, Upload Speed, Response Time, Paketverlust und Verfügbarkeit sind:
+		\ol
+			\li E-mail Kommunikation
+			\li File Share
+			\li Instant Messaging
+			\li Video/Radio Streaming
+			\li Video-Chat
+			\li Gaming
+		\olE
 	\li Erklären Sie das Client-Server Paradigma und das P2P Paradigma je an einem Beispiel. Machen Sie eine Skizze.
 \olS
 
@@ -458,20 +466,20 @@ Wie werden die vier Datenströme auf kurzen Strecken in einer Faser transportier
 	\li Was ist NVT und wie funktioniert es? 
 	\li Was bedeutet Remote Access?
 	\li Was sind Remote Desktop Services und Remote Terminal Services?
-	\li Maschen Sie eine Skizze, wie NTV funktioniert. Welche Probleme kann es bezügl. Timeout und Verzögerung geben? Wird jedes Zeichen einzeln übertragen oder wird zusammengefasst? Warum kann nicht zu lang gewartet werden mit dem Senden der Konsoleneingabe?
+	\li Machen Sie eine Skizze, wie NTV funktioniert. Welche Probleme kann es bezüglich Timeout und Verzögerung geben? Wird jedes Zeichen einzeln übertragen oder wird zusammengefasst? Warum kann nicht zu lang gewartet werden mit dem Senden der Konsoleneingabe?
 \olS
 
 \se{Telnet}
 \olR
 	\li Was ist Telnet? Wozu wird es eingesetzt? Welche Risken birgt es?
 	\li Was ist ein Lokales Echo?
-	\li Was ist der TCP Nagle algorithm? Wie funktioniert er?
+	\li Was ist der TCP Nagle Algorithm? Wie funktioniert er?
 \olS
 
 \se{TFTP, FTP}
 \olR
 	\li Auf welchem Protokoll setzt TFTP auf?
-	\li Erklären Sie, wie eine TFTP Verbindung aufgebaut wird, und wie die Datenübertragung funktioniert.
+	\li Erklären Sie, wie eine TFTP Verbindung aufgebaut wird und wie die Datenübertragung funktioniert.
 	\li Wie ist eine TFTP Message aufgebaut? Skizzieren Sie die vier Arten von Nachrichten, die TFTP übertragen kann. Wozu wird welcher Typ benutzt?
 	\li Wie erkennt TFTP das Ende einer Datei?
 	\li Sie haben eine Datei, die 2048 Bytes gross ist. Was für Pakete werden übers Netz gesendet und wie viele?
@@ -494,8 +502,8 @@ Wie werden die vier Datenströme auf kurzen Strecken in einer Faser transportier
 			\li persistent connection with pipelining
 			\li non-persistent connection with parallel connections
 		\olE
-	\li Welchen Einfluss hat der Browsercache auf die Ladezeit
-	\li Was ist conditional Get? Erklären Sie, was dabei zwischen dem Browser und dem Server aböäuft.
+	\li Welchen Einfluss hat der Browsercache auf die Ladezeit?
+	\li Was ist Conditional Get? Erklären Sie, was dabei zwischen dem Browser und dem Server abläuft.
 	\li Was ist ein HTTP Proxy und wozu dient er?
 	\li Welche Möglichkeiten haben Sie, sich in die HTTP Verbindung einzuklinken?
 \olE
